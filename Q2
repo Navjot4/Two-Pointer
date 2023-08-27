@@ -1,0 +1,23 @@
+Find sum pair closest to X
+
+class Solution{   
+public:
+    vector<int> sumClosest(vector<int>arr, int x)
+    {
+        // code here
+        vector<int>v;
+        int i=0,j=arr.size()-1, first = arr[i],second = arr[j];
+        while(i<j){
+            int sum = arr[i]+arr[j];
+            if(abs(sum-x)<abs((second+first)-x)){
+                first = arr[i];
+                second = arr[j];
+            }
+            if(sum<x) i++;
+            else j--;
+        }
+        v.push_back(first);
+        v.push_back(second);
+        return v;
+    }
+};
