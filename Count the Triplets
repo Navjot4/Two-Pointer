@@ -1,0 +1,23 @@
+int countTriplet(int arr[], int n)
+	{
+	    // Your code goes here
+	    sort(arr,arr+n); int ct=0;
+	    for(int i=n-1;i>=2;i--)
+	    {
+	        int j=0;
+	        int k=i-1;
+	        while(j<k)
+	        {
+	            if(arr[i]==arr[j]+arr[k])
+	            {
+	                ct++; j++; k--;
+	            }
+	            else if (arr[i] > arr[j] + arr[k])
+                { j += 1; }
+                else{
+                    k--;
+                }
+	        }
+	    }
+	    return ct;
+	}
